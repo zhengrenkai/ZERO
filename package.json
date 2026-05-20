@@ -1,7 +1,7 @@
 {
-  "name": "jarvis-goal-os",
+  "name": "零",
   "version": "1.0.0",
-  "description": "Jarvis Goal OS - 持久化记忆的人生目标操作系统",
+  "description": "零 — 持久化记忆的人生目标操作系统",
   "main": "src/index.js",
   "scripts": {
     "status": "node src/index.js"

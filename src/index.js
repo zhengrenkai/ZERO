@@ -17,7 +17,7 @@ const observations = readJSON('01_人生核心档案', 'AI观察记录.json');
 
 console.log('');
 console.log('═══════════════════════════════════════════');
-console.log('  Jarvis Goal OS');
+console.log('  零');
 console.log('═══════════════════════════════════════════');
 console.log('');
 
