@@ -1,10 +1,12 @@
 {
   "name": "零",
   "version": "1.0.0",
-  "description": "零 — 持久化记忆的人生目标操作系统",
-  "main": "src/index.js",
+  "description": "零 — 持久化记忆的人生目标操作系统（通过AI对话运行）",
   "scripts": {
-    "status": "node src/index.js"
+    "status": "node src/index.js",
+    "dashboard": "node src/generate_dashboard.js",
+    "update": "node src/generate_dashboard.js && node src/index.js",
+    "push": "node src/push.js"
   },
   "dependencies": {}
 }
