@@ -118,12 +118,59 @@ function checkExecutionLogs() {
   };
 }
 
+function calcHealthScore(state, build, logs, observations) {
+  if (!state) return null;
+
+  let score = 0;
+
+  const execWeight = 0.4;
+  const execScore = Math.min(logs.count / 7, 1) * 100;
+  score += execScore * execWeight;
+
+  const balanceWeight = 0.3;
+  const positive = (state.精力 || 0) + (state.动量 || 0) + (state.纪律 || 0);
+  const negative = (state.疲劳 || 0) + (state.压力 || 0);
+  const balance = positive - negative;
+  const balanceScore = Math.max(0, Math.min(100, (balance + 10) * 5));
+  score += balanceScore * balanceWeight;
+
+  const buildWeight = 0.2;
+  let buildScore = 0;
+  if (build && build.totalTasks > 0) {
+    buildScore = build.progress;
+  }
+  score += buildScore * buildWeight;
+
+  const obsWeight = 0.1;
+  const hasRecentObs = observations && observations.recent && observations.recent.length > 0;
+  const obsScore = hasRecentObs ? 100 : 0;
+  score += obsScore * obsWeight;
+
+  const health = {
+    score: Math.round(score),
+    execScore: Math.round(execScore),
+    balanceScore: Math.round(balanceScore),
+    buildScore: Math.round(buildScore),
+    obsScore: Math.round(obsScore)
+  };
+
+  if (health.score >= 80) health.level = '优';
+  else if (health.score >= 60) health.level = '良';
+  else if (health.score >= 40) health.level = '中';
+  else if (health.score >= 20) health.level = '差';
+  else health.level = '危险';
+
+  return health;
+}
+
 function generateReport() {
   const build = checkSystemBuildProgress();
   const suggestions = checkSuggestions();
   const rulesOK = checkActionRules();
   const observations = checkObservations();
   const logs = checkExecutionLogs();
+  const state = readJSON('01_人生核心档案', '当前状态.json');
+  const health = calcHealthScore(state, build, logs, observations);
 
   const now = new Date().toISOString();
   
@@ -139,6 +186,15 @@ function generateReport() {
     if (build.nextTask) {
       report += `**下一个任务**: ${build.nextTask}\n\n`;
     }
+  }
+
+  report += `## 🏥 系统健康度\n`;
+  if (health) {
+    const bar = '█'.repeat(Math.floor(health.score / 10)) + '░'.repeat(10 - Math.floor(health.score / 10));
+    report += `| 总分 | 等级 | 状态分 | 均衡分 | 建设分 | 观察分 |\n`;
+    report += `|------|------|--------|--------|--------|--------|\n`;
+    report += `| ${health.score}/100 | ${health.level} | ${health.execScore} | ${health.balanceScore} | ${health.buildScore} | ${health.obsScore} |\n`;
+    report += `\n${bar} ${health.score}/100\n\n`;
   }
 
   report += `## 🎯 优化建议池\n`;
@@ -215,6 +271,7 @@ module.exports = {
   checkActionRules,
   checkObservations,
   checkExecutionLogs,
+  calcHealthScore,
   generateReport,
   main
 };
