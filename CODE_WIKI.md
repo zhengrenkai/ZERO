@@ -590,7 +590,7 @@ Phase 3：街健动作组合
 
 ### 5.1 src/index.js — 终端状态查看器
 
-**文件路径**：[src/index.js](file:///c:/Users/zzy/Desktop/AI人生操作系统/src/index.js)
+**文件路径**：[src/index.js](file:///c:/Users/zzy/Desktop/零/src/index.js)
 
 运行方式（需 Node.js 环境）：
 
@@ -671,13 +671,13 @@ function readJSON(...segments) {
   ✓ 全部通过
 
 ═══════════════════════════════════════════
-  目录: C:\Users\zzy\Desktop\AI人生操作系统
+  目录: C:\Users\zzy\Desktop\零
 ═══════════════════════════════════════════
 ```
 
 ### 5.2 src/generate_dashboard.js — 仪表盘自动生成
 
-**文件路径**：[src/generate_dashboard.js](file:///c:/Users/zzy/Desktop/AI人生操作系统/src/generate_dashboard.js)
+**文件路径**：[src/generate_dashboard.js](file:///c:/Users/zzy/Desktop/零/src/generate_dashboard.js)
 
 运行方式：
 
