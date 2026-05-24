@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "零 — 持久化记忆的人生目标操作系统（通过AI对话运行）",
   "scripts": {
+    "init": "node src/init.js",
     "status": "node src/index.js",
     "dashboard": "node src/generate_dashboard.js",
     "update": "node src/generate_dashboard.js && node src/index.js",
