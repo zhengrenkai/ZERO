@@ -1,9 +1,0 @@
-{
-  "name": "零",
-  "version": "2.0.0",
-  "description": "零 — 持久化记忆的人生目标操作系统（通过AI对话运行）",
-  "scripts": {
-    "push": "node src/push.js"
-  },
-  "dependencies": {}
-}
