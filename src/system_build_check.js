@@ -21,7 +21,7 @@ function readFile(...segments) {
 }
 
 function checkSystemBuildProgress() {
-  const roadmap = readFile('09_系统建设', '迭代路线图.md');
+  const roadmap = readFile('09_自我进化', '迭代路线图.md');
   
   if (!roadmap) {
     console.log('[WARN] 迭代路线图.md 未找到');
@@ -59,7 +59,7 @@ function checkSystemBuildProgress() {
 }
 
 function checkSuggestions() {
-  const suggestions = readFile('09_系统建设', '优化建议池.md');
+  const suggestions = readFile('09_自我进化', '优化建议池.md');
   if (!suggestions) return { hasHighPriority: false, count: 0 };
 
   const highPriorityMatches = suggestions.match(/\*\*高优先级\*\*/g) || [];
@@ -254,7 +254,7 @@ function main() {
   const report = generateReport();
   console.log(report);
 
-  const outputPath = path.join(ROOT, '09_系统建设', '自动化检查报告.md');
+  const outputPath = path.join(ROOT, '09_自我进化', '自动化检查报告.md');
   fs.writeFileSync(outputPath, report, 'utf-8');
   console.log(`\n报告已保存到: ${outputPath}`);
 
