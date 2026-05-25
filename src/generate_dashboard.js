@@ -85,15 +85,15 @@ function main() {
   if (!state) console.warn('[WARN] 当前状态.json 未找到，将使用默认值');
   if (!goals) console.warn('[WARN] 长期目标.json 未找到，将使用默认值');
 
-  const writeDashboard = writeFile('08_仪表盘');
+  const writeDashboard = writeFile('05_仪表盘');
 
   const 状态内容 = generate当前人生状态(state, goals);
   writeDashboard('当前人生状态.md')(状态内容);
-  console.log('[OK] 08_仪表盘/当前人生状态.md');
+  console.log('[OK] 05_仪表盘/当前人生状态.md');
 
   const 目标内容 = generate当前重点目标(goals);
   writeDashboard('当前重点目标.md')(目标内容);
-  console.log('[OK] 08_仪表盘/当前重点目标.md');
+  console.log('[OK] 05_仪表盘/当前重点目标.md');
 
   console.log('\n仪表盘生成完毕。');
 }
