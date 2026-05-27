@@ -3,3 +3,4 @@ src/data/
 .env
 .git-path-cache.txt
 .idea/
+.reasonix/
