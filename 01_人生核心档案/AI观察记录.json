@@ -221,6 +221,13 @@
       "类型": "系统变更",
       "内容": "01_人生核心档案重构：人格与方向.json拆分为4个专注文件，新增行为模式.json，精简AI观察记录.json。共7个JSON文件，启动效率提升。",
       "status": "active"
+    },
+    {
+      "日期": "2026-05-29",
+      "scope": "instant",
+      "类型": "工具评估",
+      "内容": "AI工具评估总结——使用历史：GPT（尝鲜）→豆包/DeepSeek（开发提效）→通义灵码（IDE插件）→Codex（中转站60元3天用完）→Trae→Reasonix Code。当前双工具分工：Reasonix Code（主力编码，DeepSeek V4 Flash，便宜快）+ Trae（免费、移动端、识图补充）。模型策略：主力DeepSeek V4 Flash（284B），复杂任务临时切V4 Pro（1.6T）。后续策略：恢复档不主动追新工具，被动碰到试15分钟记一笔。",
+      "status": "active"
     }
   ]
 }
